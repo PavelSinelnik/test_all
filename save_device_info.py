@@ -27,4 +27,4 @@ def lambda_handler(event, context):
         }
     )
 
-    return object['VersionId new']
+    return object['VersionId newfg']
