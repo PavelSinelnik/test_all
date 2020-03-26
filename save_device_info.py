@@ -20,5 +20,5 @@ def lambda_handler(event, context):
     #item = json.dumps(event['Records'][0])
     #object = s3.put_object(Bucket="forevent", Key='tap1.json', Body=item)
     
-    return('bydesh havat')
+    return('ne budu')
     
