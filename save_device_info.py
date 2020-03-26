@@ -1,30 +1,24 @@
-import datetime
-import base64
+import json
 import boto3
-
-
+import zipfile
 def lambda_handler(event, context):
-    s3 = boto3.client('s3')
-    get_file_content = event['content']
-
-    object = s3.put_object(Bucket="example141323", Key=event['id'], Body=get_file_content)
-
-    db = boto3.client('dynamodb')
-    now = datetime.datetime.now()
-    db.put_item(
-        TableName='data_from_users',
-        Item={
-            'id': {
-                "S": event['id']
-            },
-            'date': {
-                "S": str(now.day) + '.' + str(now.month) + '.' + str(now.year)
-            },
-            'time': {
-                "S": str(now.hour) + ':' + str(now.minute) + ':' + str(now.second) + '.' + str(now.microsecond)
-            }
-
-        }
-    )
-
-    return object['VersionId new totemKaribov']
+    s3=boto3.client('s3')
+    l=boto3.client('lambda')
+    #key = event["Records"][0]['s3']['object']['key']
+   #bucket = event['Records'][0]['s3']['bucket']['name']
+    #if key == 'save_device_info.zip':
+        #name='save_device_info'
+    #if key == 'check_device_info.zip':
+        #name = 'check_device_info'
+    
+    #if name == 'save_device_info' or name == 'check_device_info':
+    l.update_function_code(
+            FunctionName="check_device_info",
+            S3Bucket=forevent,
+            S3Key="save_device_info"
+                )
+    #item = json.dumps(event['Records'][0])
+    #object = s3.put_object(Bucket="forevent", Key='tap1.json', Body=item)
+    
+    return('bydesh havat')
+    
